@@ -1,6 +1,5 @@
 package homework18;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
@@ -23,6 +22,6 @@ public class StringCollectionTransformation {
                 .stream()
                 .filter(x -> x.matches("[AEOUI].*"))
                 .map(String::toUpperCase)
-                .collect(Collectors.toCollection(ArrayList<String>::new));
+                .collect(Collectors.toList());
     }
 }
