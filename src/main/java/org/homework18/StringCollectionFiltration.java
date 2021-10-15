@@ -1,4 +1,4 @@
-package homework18;
+package org.homework18;
 
 import java.util.Collection;
 
@@ -8,6 +8,10 @@ import java.util.Collection;
  * Uses {@code stream()} and lambda.
  */
 public class StringCollectionFiltration {
+
+    private StringCollectionFiltration() {
+        throw new IllegalStateException("Utility class");
+    }
 
     /**
      * The method for filtration of collections elements by lowercase and length equals 4.

@@ -1,4 +1,4 @@
-package lesson16;
+package org.lesson16;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

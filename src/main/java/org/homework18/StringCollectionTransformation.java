@@ -1,4 +1,4 @@
-package homework18;
+package org.homework18;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -10,6 +10,10 @@ import java.util.stream.Collectors;
  */
 public class StringCollectionTransformation {
 
+    private StringCollectionTransformation() {
+        throw new IllegalStateException("Utility class");
+    }
+
     /**
      * The method  makes filtration of collections elements by a first uppercase vowel letter.
      * Then converts words to uppercase and collect to {@code ArrayList}.
@@ -20,7 +24,7 @@ public class StringCollectionTransformation {
     public static Collection<String> stringCollectionTransformation(Collection<String> collection) {
         return collection
                 .stream()
-                .filter(x -> x.matches("[AEOUI].*"))
+                .filter(x -> x.matches("^[AEOUI].*$"))
                 .map(String::toUpperCase)
                 .collect(Collectors.toList());
     }

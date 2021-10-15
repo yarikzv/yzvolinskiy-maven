@@ -1,4 +1,4 @@
-package homework16.interfaces;
+package org.homework16.interfaces;
 
 public interface StringCollection {
     String get(int index);

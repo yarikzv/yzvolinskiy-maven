@@ -1,4 +1,4 @@
-package lesson16;
+package org.lesson16;
 
 public class Calculator {
     static public int sum(int a, int b){

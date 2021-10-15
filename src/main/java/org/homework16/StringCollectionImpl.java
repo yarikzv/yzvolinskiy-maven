@@ -1,6 +1,6 @@
-package homework16;
+package org.homework16;
 
-import homework16.interfaces.StringCollection;
+import org.homework16.interfaces.StringCollection;
 
 import java.util.Arrays;
 

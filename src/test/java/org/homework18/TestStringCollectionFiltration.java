@@ -1,4 +1,4 @@
-package homework18;
+package org.homework18;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -13,7 +13,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 
-public class TestStringCollectionFiltration {
+class TestStringCollectionFiltration {
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
@@ -29,14 +29,26 @@ public class TestStringCollectionFiltration {
     }
 
     @Test
-    public void stringCollectionFiltration_ShouldGiveOutputCaptorSuccess(){
+    void stringCollectionFiltration_List_ShouldGiveOutputCaptorSuccess() {
         StringCollectionFiltration.stringCollectionFiltration(givenList);
         Assertions.assertEquals(
                 expectedList,
                 Arrays.stream(outputStreamCaptor
-                .toString()
-                .trim().split("\\W+"))
-                .collect(Collectors.toList()));
+                                .toString()
+                                .trim().split("\\W+"))
+                        .collect(Collectors.toList()));
+    }
+
+    @Test
+    void stringCollectionFiltration_Set_ShouldGiveOutputCaptorSuccess() {
+        StringCollectionFiltration.stringCollectionFiltration(givenSet);
+        Assertions.assertEquals(
+                expectedList,
+                Arrays.stream(outputStreamCaptor
+                                .toString()
+                                .trim().split("\\W+"))
+                        .sorted()
+                        .collect(Collectors.toList()));
     }
 
     @AfterEach

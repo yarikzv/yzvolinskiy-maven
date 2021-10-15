@@ -1,4 +1,4 @@
-package homework18;
+package org.homework18;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class TestStringCollectionTransformation {
+class TestStringCollectionTransformation {
 
     List<String> givenList = List.of("Lorem", "Ipsum", "dolor", "sit", "amet", "Ut", "Excepteur", "Duis",
             "laboris", "ullamco", "Nemo", "harum", "aliquam", "At");
@@ -15,14 +15,14 @@ public class TestStringCollectionTransformation {
     List<String> expectedList = List.of("IPSUM", "UT", "EXCEPTEUR", "AT");
 
     @Test
-    public void stringCollectionTransformation_List_ShouldGiveExpectedList() {
+    void stringCollectionTransformation_List_ShouldGiveExpectedList() {
         Assertions.assertEquals(expectedList,
                 StringCollectionTransformation
                         .stringCollectionTransformation(givenList));
     }
 
     @Test
-    public void stringCollectionTransformation_Set_ShouldGiveExpectedList() {
+    void stringCollectionTransformation_Set_ShouldGiveExpectedList() {
         Assertions.assertEquals(expectedList
                         .stream()
                         .sorted()
