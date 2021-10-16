@@ -19,90 +19,93 @@ public class StringCollectionImplImprovedTest {
         collection1.add("Two");
     }
 
+
     @BeforeEach
     public void createNewCollection() {
         collection = new StringCollectionImplImproved();
     }
 
+
     @Test
-    public void sizeShouldBeZero() {
+    public void shouldGetSize() {
         Assertions.assertEquals(0, collection.size());
     }
 
     @Test
-    public void addShouldGiveSizeTwo() {
+    public void shouldAddElementToCollection() {
         addingToCollection();
         Assertions.assertEquals(2, collection.size());
     }
 
     @Test
-    public void addNullShouldGiveSizeOne(){
+    public void shouldAddNull() {
         collection.add(null);
         Assertions.assertEquals(1, collection.size());
     }
 
     @Test
-    public void getShouldGiveStringTwo() {
+    public void shouldGetElementByIndex() {
         addingToCollection();
         Assertions.assertEquals("Two", collection.get(1));
     }
 
     @Test
-    public void addByIndexShouldGiveStringTwo() {
+    public void shouldAddElementByIndex() {
         addingToCollection();
         collection.add(1, "Three");
         Assertions.assertEquals("Three", collection.get(1));
     }
 
     @Test
-    public void addByIndexShouldBeFalse() {
-        Assertions.assertFalse(collection.add(2,"Three"));
+    public void shouldBeFalseAddElementByIndex() {
+        Assertions.assertFalse(collection.add(2, "Three"));
     }
+
     @Test
-    public void deleteShouldGiveSizeTwo() {
+    public void shouldDeleteElementByValue() {
         addingToCollection();
         collection.delete("Two");
         Assertions.assertEquals(1, collection.size());
     }
 
     @Test
-    public void deleteShouldBeFalse() {
+    public void shouldBeFalseDeleteElementByValue() {
         Assertions.assertFalse(collection.delete("One"));
     }
 
     @Test
-    public void deleteByIndexShouldGiveSizeOne(){
+    public void shouldDeleteElementByIndex() {
         addingToCollection();
         collection.delete(1);
         Assertions.assertEquals(1, collection.size());
     }
 
     @Test
-    public void deleteByIndexShouldBeFalse() {
+    public void shouldBeFalseDeleteElementByIndex() {
         addingToCollection();
         Assertions.assertFalse(collection.delete(2));
     }
 
     @Test
-    public void containsShouldBeTrue() {
+    public void shouldBeTrueContains() {
         addingToCollection();
         Assertions.assertTrue(collection.contains("One"));
     }
 
     @Test
-    public void containsShouldBeFalse() {
+    public void shouldBeFalseContains() {
         addingToCollection();
         Assertions.assertFalse(collection.contains("Three"));
     }
 
     @Test
-    public void containsNullShouldBeTrue() {
+    public void shouldBeTrueContainsNull() {
         collection.add(null);
         Assertions.assertTrue(collection.contains(null));
     }
 
     @Test
-    public void equalsShouldBeTrue() {
+    public void shouldBeTrueEquals() {
         addingToCollection();
         collection1 = new StringCollectionImplImproved();
         addingToCollection1();
@@ -110,7 +113,7 @@ public class StringCollectionImplImprovedTest {
     }
 
     @Test
-    public void equalsMismatchedSizeShouldBeFalse() {
+    public void shouldBeFalseEqualsMismatchedSize() {
         addingToCollection();
         collection1 = new StringCollectionImplImproved();
         addingToCollection1();
@@ -119,7 +122,7 @@ public class StringCollectionImplImprovedTest {
     }
 
     @Test
-    public void equalsMismatchedElementsShouldBeFalse(){
+    public void shouldBeFalseEqualsMismatchedElements() {
         addingToCollection();
         collection1 = new StringCollectionImplImproved();
         collection1.add("Test");
@@ -128,7 +131,7 @@ public class StringCollectionImplImprovedTest {
     }
 
     @Test
-    public void equalsWithNullShouldBeTrue() {
+    public void shouldBeTrueEqualsWithNull() {
         collection.add(null);
         collection1 = new StringCollectionImplImproved();
         collection1.add(null);
@@ -136,7 +139,7 @@ public class StringCollectionImplImprovedTest {
     }
 
     @Test
-    public void equalsAndHashCodeShouldBeSymmetric(){
+    public void shouldBeSymmetricEqualsAndHashCode() {
         addingToCollection();
         collection1 = new StringCollectionImplImproved();
         collection1.add("One");
@@ -146,30 +149,30 @@ public class StringCollectionImplImprovedTest {
     }
 
     @Test
-    public void clearShouldGiveSizeZero() {
+    public void shouldGetClear() {
         addingToCollection();
         collection.clear();
         Assertions.assertEquals(0, collection.size());
     }
 
     @Test
-    public void addNullShouldThrowException() {
+    public void shouldNotThrowExceptionAddNull() {
         Assertions.assertDoesNotThrow(() -> collection.add(null));
     }
 
     @Test
-    public void indexOfShouldGiveZero(){
+    public void shouldGetIndexOfElement() {
         addingToCollection();
         Assertions.assertEquals(0, collection.indexOf("One"));
     }
 
     @Test
-    public void indexOfShouldGiveMinusOne(){
+    public void shouldGetIndexOfMissedElement() {
         Assertions.assertEquals(-1, collection.indexOf("One"));
     }
 
     @Test
-    public void indexOfNullShouldGiveZero(){
+    public void shouldGetIndexOfNullElement() {
         collection.add(null);
         Assertions.assertEquals(0, collection.indexOf(null));
     }
