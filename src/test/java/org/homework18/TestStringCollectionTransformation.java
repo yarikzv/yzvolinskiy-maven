@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class TestStringCollectionTransformation {
 
     @Test
-    public void stringCollectionTransformation_List_ShouldGiveExpectedList() {
+    public void shouldGetTransformedListFromList() {
         // given
         List<String> givenList = List.of("Lorem", "Ipsum", "dolor", "sit", "amet", "Ut", "Excepteur", "Duis",
                 "laboris", "ullamco", "Nemo", "harum", "aliquam", "At");
@@ -27,7 +27,7 @@ public class TestStringCollectionTransformation {
     }
 
     @Test
-    public void stringCollectionTransformation_Set_ShouldGiveExpectedList() {
+    public void shouldGetTransformedListFromSet() {
         // given
         Set<String> givenSet = Set.of("Alfa", "bravo", "Charlie", "delta", "echo", "Foxtrot",
                 "Golf", "hotel", "India", "Juliett", "kilo");
