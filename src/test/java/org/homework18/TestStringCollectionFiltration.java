@@ -12,15 +12,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-
-class TestStringCollectionFiltration {
+public class TestStringCollectionFiltration {
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-
-    List<String> givenList = List.of("Lorem", "Ipsum", "dolor", "sit", "amet", "Ut", "Excepteur", "duis",
-            "laboris", "ullamco", "nemo", "harum", "aliquam", "At");
-    Set<String> givenSet = Set.copyOf(givenList);
-    List<String> expectedList = List.of("amet", "duis", "nemo");
 
     // Testing by capturing output stream
     @BeforeEach
@@ -29,26 +23,44 @@ class TestStringCollectionFiltration {
     }
 
     @Test
-    void stringCollectionFiltration_List_ShouldGiveOutputCaptorSuccess() {
+    public void shouldGetFiltratedListFromList() {
+        // given
+        List<String> givenList = List.of("Lorem", "Ipsum", "dolor", "sit", "amet", "Ut", "Excepteur", "duis",
+                "laboris", "ullamco", "nemo", "harum", "aliquam", "At");
+
+        // expected
+        List<String> expectedList = List.of("amet", "duis", "nemo");
+
+        // actual
         StringCollectionFiltration.stringCollectionFiltration(givenList);
-        Assertions.assertEquals(
-                expectedList,
-                Arrays.stream(outputStreamCaptor
-                                .toString()
-                                .trim().split("\\W+"))
-                        .collect(Collectors.toList()));
+        List<String> actualList = Arrays.stream(outputStreamCaptor
+                        .toString()
+                        .trim().split("\\W+"))
+                .collect(Collectors.toList());
+
+        // assert
+        Assertions.assertEquals(expectedList, actualList);
     }
 
     @Test
-    void stringCollectionFiltration_Set_ShouldGiveOutputCaptorSuccess() {
+    public void shouldGetFiltratedListFromSet() {
+        // given
+        Set<String> givenSet = Set.of("Alfa", "bravo", "Charlie", "delta", "echo", "Foxtrot",
+                "Golf", "hotel", "india", "Juliett", "kilo");
+
+        // expected
+        List<String> expectedList = List.of("echo", "kilo");
+
+        // actual
         StringCollectionFiltration.stringCollectionFiltration(givenSet);
-        Assertions.assertEquals(
-                expectedList,
-                Arrays.stream(outputStreamCaptor
-                                .toString()
-                                .trim().split("\\W+"))
-                        .sorted()
-                        .collect(Collectors.toList()));
+        List<String> actualList = Arrays.stream(outputStreamCaptor
+                        .toString()
+                        .trim().split("\\W+"))
+                .sorted()
+                .collect(Collectors.toList());
+
+        // assert
+        Assertions.assertEquals(expectedList, actualList);
     }
 
     @AfterEach
