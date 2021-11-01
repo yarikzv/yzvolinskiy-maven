@@ -77,14 +77,20 @@ public class ATM {
         int withdrawAmount = new Random().nextInt(9_999) + 1;
         while (cashAmountATM < withdrawAmount) {
             System.out.print("╭" + "─".repeat(65) + "\n│ " +
-                    RED_ITALIC +
-                    "Not enough funds. " +
-                    RESET +
-                    "\uD83D\uDCB5 \n│ Enter the amount to refill the ATM: ");
+                    RED_ITALIC + "Not enough funds. " + RESET +
+                    "\uD83D\uDCB5 \n│ Current ATM amount: " +
+                    RED_ITALIC + cashAmountATM + RESET +
+                    "\n│ You want to withdraw: " +
+                    LIGHT_BLUE_ITALIC + withdrawAmount + RESET +
+                    "\n│ Enter the amount to refill the ATM: ");
             int fill = scanner.nextInt();
-            System.out.printf("│ ATM refilled with %d\n╰" + "─".repeat(65) + "\n", fill);
-            cashAmountATM += fill;
-            System.out.println("* ATM amount: " + cashAmountATM);
+            if (fill > 0) {
+                cashAmountATM += fill;
+                System.out.printf("│ ATM refilled with %d\n╰" + "─".repeat(65) + "\n", fill);
+            } else {
+                System.out.println("│ " + RED_ITALIC + "Wrong amount".toUpperCase() + RESET);
+                System.out.println("╰" + "─".repeat(65));
+            }
         }
         cashAmountATM -= withdrawAmount;
         return " >> Transaction: " +
