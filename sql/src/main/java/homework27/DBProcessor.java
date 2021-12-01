@@ -7,7 +7,7 @@ import java.util.List;
 /**
  *  A class for processing database queries using JDBC. Contains four methods.
  *  SQL queries executes by {@code PreparedStatement} using {@code int id} as parameter.
- *  Used {@code try} with parameters because {@code PreparedStatement} needs
+ *  Used {@code try} with resources because {@code PreparedStatement} and connection needs
  *  to be closed.
  */
 public class DBProcessor {
